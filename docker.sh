@@ -25,3 +25,4 @@ function d(){
        echo " d r(un)"
 }
 
+# MIT License Copyright (c) 2018 Matt Hoyle
