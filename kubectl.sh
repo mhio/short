@@ -33,3 +33,4 @@ function k(){
   #set +x
 }
 
+# MIT License Copyright (c) 2018 Matt Hoyle
