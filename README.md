@@ -1,6 +1,12 @@
 # Shell helpers
 
-# Git
+```
+g s
+d ps
+k g all
+```
+
+## Git
 
 ```
 $ g h
@@ -13,7 +19,7 @@ the (g)it function - g (a b c d l s)
  g s(tatus)
 ```
 
-# Docker
+## Docker
 
 ```
 $ d h
@@ -27,3 +33,18 @@ the (d)ocker function - d (b r c i n v)
  d rmin     Remove <none> images
 ```
 
+## Kubernetes
+
+```
+the (k)ubectl function - k ()
+ k c(reate)
+ k a(pply)
+ k r(un)
+ k s(et)
+ k g(get)
+ k d(escribe)
+ k e(dit)
+ k del(ete)
+ k l(ogs)
+ k ex(ec)
+```
