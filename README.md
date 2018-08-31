@@ -1,4 +1,4 @@
-# Shell helpers
+# Git, Docker and Kubernetes shell helpers
 
 ```
 g s
