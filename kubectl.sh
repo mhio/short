@@ -18,16 +18,19 @@ function k(){
   fi
   case $arg in
     #cns)   set_kubeconfig_namespace;;
-    c|cr*) kubectl create   $K_NAMESPACE_ARG "$@";;
-    a|ap*) kubectl apply    $K_NAMESPACE_ARG "$@";;
-    r|ru*) kubectl run      $K_NAMESPACE_ARG "$@";;
-    s|se*) kubectl set      $K_NAMESPACE_ARG "$@";;
-    g|ge*) kubectl get      $K_NAMESPACE_ARG "$@";;
-    d|de*) kubectl describe $K_NAMESPACE_ARG "$@";;
-    e|ed*) kubectl edit     $K_NAMESPACE_ARG "$@";;
-    del)   kubectl delete   $K_NAMESPACE_ARG "$@";;
-    l|lo*) kubectl logs     $K_NAMESPACE_ARG "$@";;
-    ex|exe*) kubectl exec   $K_NAMESPACE_ARG "$@";;
+    del|delete)   kubectl delete  $K_NAMESPACE_ARG "$@";;
+    exp*)         kubectl explain $K_NAMESPACE_ARG "$@";;
+    c|cr*)        kubectl create   $K_NAMESPACE_ARG "$@";;
+    apiv|api-v*)  kubectl api-versions  $K_NAMESPACE_ARG "$@";;
+    apir|api-r*)  kubectl api-resources $K_NAMESPACE_ARG "$@";;
+    a|ap*)       kubectl apply    $K_NAMESPACE_ARG "$@";;
+    r|ru)         kubectl run      $K_NAMESPACE_ARG "$@";;
+    s|se)         kubectl set      $K_NAMESPACE_ARG "$@";;
+    g|ge)         kubectl get      $K_NAMESPACE_ARG "$@";;
+    d|de*)        kubectl describe $K_NAMESPACE_ARG "$@";;
+    e|ed*)        kubectl edit     $K_NAMESPACE_ARG "$@";;
+    l|lo*)        kubectl logs     $K_NAMESPACE_ARG "$@";;
+    ex|ex*)       kubectl exec    $K_NAMESPACE_ARG "$@";;
     h) echo "the (k)ubectl function - k ()"
        echo " k c(reate)"
        echo " k a(pply)"
