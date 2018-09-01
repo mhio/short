@@ -47,4 +47,6 @@ the (k)ubectl function - k ()
  k del(ete)
  k l(ogs)
  k ex(ec)
+ k api-v(ersion)
+ k api-r(esources)
 ```
