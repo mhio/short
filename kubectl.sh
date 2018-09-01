@@ -1,12 +1,13 @@
 
 # This is this kubectl shortener
 function k(){
-  set -x
-  local arg args
+  #set -x
+  local arg args K_NAMESPACE_ARG
   arg="$1"
   shift
-  if [ "$arg" == "-n" -o "$arg" == "--namespace" ]; then
-    K_NS="$1"
+  if [ "$arg" == "ns" ]; then
+    K_NAMESPACE_ARG="--all-namespaces"
+    arg="$1"
     shift
   fi
   if [ -n "$K_NS" ]; then
@@ -17,13 +18,12 @@ function k(){
     fi
   fi
   case $arg in
-    #cns)   set_kubeconfig_namespace;;
     del|delete)   kubectl delete  $K_NAMESPACE_ARG "$@";;
     exp*)         kubectl explain $K_NAMESPACE_ARG "$@";;
     c|cr*)        kubectl create   $K_NAMESPACE_ARG "$@";;
     apiv|api-v*)  kubectl api-versions  $K_NAMESPACE_ARG "$@";;
     apir|api-r*)  kubectl api-resources $K_NAMESPACE_ARG "$@";;
-    a|ap*)       kubectl apply    $K_NAMESPACE_ARG "$@";;
+    a|ap*)        kubectl apply    $K_NAMESPACE_ARG "$@";;
     r|ru)         kubectl run      $K_NAMESPACE_ARG "$@";;
     s|se)         kubectl set      $K_NAMESPACE_ARG "$@";;
     g|ge)         kubectl get      $K_NAMESPACE_ARG "$@";;
@@ -41,10 +41,13 @@ function k(){
        echo " k e(dit)"
        echo " k del(ete)"
        echo " k l(ogs)"
-       echo " k ex(ec)";;
+       echo " k ex(ec)"
+       echo " k api-v(ersion)"
+       echo " k api-r(esources)"
+       ;;
     *) kubectl $K_NAMESPACE_ARG "$@";;
   esac
-  set +x
+  #set +x
 }
 
 set_kubeconfig_namespace(){
