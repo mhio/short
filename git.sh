@@ -12,6 +12,7 @@ function g(){
     c|co*) git commit "$@";;
     d|di*) git diff "$@";;
     l|lo*) git log "$@";;
+    p|pu*) git push "$@";;
     s|st*) git status "$@";;
     h) echo "the (g)it function - g (a b c d l s)"
        echo " g a(dd)"
@@ -19,6 +20,7 @@ function g(){
        echo " g c(ommit)"
        echo " g d(iff)"
        echo " g l(og)"
+       echo " g p(ush)"
        echo " g s(tatus)";;
     *) git "$@";; 
   esac
