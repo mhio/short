@@ -20,9 +20,18 @@ function d(){
     rme)      d_containers=$(docker ps -a | awk '/Exited|Created/ { print $1 }')
               [ -n "$d_containers" ] && docker rm $d_containers
     ;;
-    h) echo "the (d)ocker function - d (b r c i n v)"
-       echo " d b(uild)"
-       echo " d r(un)"
+    h)        echo "the (d)ocker function - d (b r c i n v)"
+              echo " d b(uild)"
+              echo " d r(un)"
+              echo " d c(ommit)"
+              echo " d i(mage)"
+              echo " d n(network)"
+              echo " d v(olume)"
+              echo " d psa (ps -a)"
+              echo " d rmin (rmi all <none>)"
+              echo " d rme (rm all exited/created)"
+    *)        docker "$1" "$@";;
+  esac
 }
 
 # MIT License Copyright (c) 2018 Matt Hoyle
