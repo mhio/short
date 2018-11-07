@@ -10,7 +10,11 @@ function d(){
     b|bu*)    docker build "$@";;
     r|ru*)    docker run "$@";;
     c|co*)    docker container "$@";;
-    i|im*)    docker image "$@";;
+    i|im*)    if [ -z "$@" ]; then 
+                docker images
+              else 
+                docker image "$@"
+              fi;;
     n|ne*)    docker network "$@";;
     v|vo*)    docker volume "$@";;
     psa)      docker ps -a "$@";;
