@@ -14,7 +14,8 @@ function d(){
                 docker images
               else 
                 docker image "$@"
-              fi;;
+              fi
+    ;;
     n|ne*)    docker network "$@";;
     v|vo*)    docker volume "$@";;
     psa)      docker ps -a "$@";;
@@ -34,6 +35,7 @@ function d(){
               echo " d psa (ps -a)"
               echo " d rmin (rmi all <none>)"
               echo " d rme (rm all exited/created)"
+    ;;
     *)        docker "$1" "$@";;
   esac
 }
