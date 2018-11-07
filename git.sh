@@ -21,7 +21,8 @@ function g(){
        echo " g c(ommit)"
        echo " g d(iff)"
        echo " g l(og)"
-       echo " g p(ush)"
+       echo " g p(ull)"
+       echo " g psh(ush)"
        echo " g s(tatus)";;
     *) git "$@";; 
   esac
