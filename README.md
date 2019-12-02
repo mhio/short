@@ -1,5 +1,22 @@
 # Git, Docker and Kubernetes shell helpers
 
+
+## Usage
+
+``
+cd ~
+git clone https://github.com/mhio/short.git
+```
+
+Add to `.bashrc`
+```
+# short docker, kubectl, git https://github.com/mhio/short
+source ~/short/docker.sh
+source ~/short/kubectl.sh
+source ~/short/git.sh
+```
+
+Then run
 ```
 g s
 d ps
