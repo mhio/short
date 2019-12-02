@@ -26,7 +26,7 @@ function g(){
        echo " g s(tatus)"
        echo
        echo "All unkown or extra paramaters are passed on to git";;
-    *) git "$@";; 
+    *) git "$1" "$@";; 
   esac
   #set +x
 }
