@@ -4,7 +4,7 @@ function k(){
   set -x
   local arg args K_NAMESPACE_ARG
   arg="$1"
-  shift
+  [ -z "$arg" ] || shift
   if [ "$arg" == "ans" ]; then
     K_NAMESPACE_ARG="--all-namespaces"
     arg="$1"

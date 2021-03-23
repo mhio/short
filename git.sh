@@ -4,7 +4,7 @@ function g(){
   #set -x
   local arg args
   arg=$1
-  shift
+  [ -z "$arg" ] || shift
 
   case $arg in
     a|ad*) git add "$@";;
