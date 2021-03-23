@@ -2,7 +2,7 @@
 # This is this docker shortener
 function d(){
   #set -x
-  local arg args
+  local arg
   arg=$1
   [ -z "$arg" ] || shift
 

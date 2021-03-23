@@ -2,7 +2,7 @@
 # This is this git shortener
 function g(){
   #set -x
-  local arg args
+  local arg
   arg=$1
   [ -z "$arg" ] || shift
 
