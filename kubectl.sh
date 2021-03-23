@@ -2,7 +2,7 @@
 # This is this kubectl shortener
 function k(){
   set -x
-  local arg args K_NAMESPACE_ARG
+  local arg K_NAMESPACE_ARG
   arg="$1"
   [ -z "$arg" ] || shift
   if [ "$arg" == "ans" ]; then
