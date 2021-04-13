@@ -36,7 +36,7 @@ function d(){
               echo " d rmin (rmi all <none>)"
               echo " d rme (rm all exited/created)"
     ;;
-    *)        docker "$1" "$@";;
+    *)        docker "$arg" "$@";;
   esac
 }
 

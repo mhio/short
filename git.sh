@@ -10,6 +10,8 @@ function g(){
     a|ad*) git add "$@";;
     b|br*) git branch "$@";;
     c|co*) git commit "$@";;
+    ch*) git checkout "$@";;
+    clp) gitClonePublic "$@";;
     d|di*) git diff "$@";;
     l|lo*) git log "$@";;
     p|pu|pul*) git pull "$@";;
@@ -19,6 +21,7 @@ function g(){
        echo " g a(dd)"
        echo " g b(ranch)"
        echo " g c(ommit)"
+       echo " g clp (clone public with full path)"
        echo " g d(iff)"
        echo " g l(og)"
        echo " g p(ull)"
@@ -26,7 +29,7 @@ function g(){
        echo " g s(tatus)"
        echo
        echo "All unkown or extra paramaters are passed on to git";;
-    *) git "$1" "$@";; 
+    *) git "$arg" "$@";; 
   esac
   #set +x
 }
