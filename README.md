@@ -1,5 +1,6 @@
 # Git, Docker and Kubernetes shell helpers
 
+v0.5.0
 
 ## Usage
 
