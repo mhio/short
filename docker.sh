@@ -20,10 +20,10 @@ function d(){
     v|vo*)    docker volume "$@";;
     psa)      docker ps -a "$@";;
     rmin)     d_images=$(docker images | awk '/<none>/ { print $3 }')
-              [ -n "$d_images" ] && docker rmi $d_images
+              [ -n "$d_images" ] && echo "$d_images" | xargs docker rmi
     ;;
     rme)      d_containers=$(docker ps -a | awk '/Exited|Created/ { print $1 }')
-              [ -n "$d_containers" ] && docker rm $d_containers
+              [ -n "$d_containers" ] && echo "$d_containers" | xargs docker rm
     ;;
     h)        echo "the (d)ocker function - d (b r c i n v)"
               echo " d b(uild)"
