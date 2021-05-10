@@ -7,20 +7,21 @@ function g(){
   [ -z "$arg" ] || shift
 
   case $arg in
-    a|ad*) git add "$@";;
-    b|br*) git branch "$@";;
-    c|co*) git commit "$@";;
-    ch*) git checkout "$@";;
+    a|ad|add) git add "$@";;
+    b|br|bra*) git branch "$@";;
+    c|co|com*) git commit "$@";;
+    ch|che*) git checkout "$@";;
     clp) gitClonePublic "$@";;
-    d|di*) git diff "$@";;
-    l|lo*) git log "$@";;
-    p|pu|pul*) git pull "$@";;
-    ps|psh|pus*) git push "$@";;
-    s|st*) git status "$@";;
+    d|di|dif|diff) git diff "$@";;
+    l|lo|log) git log "$@";;
+    p|pu|pul|pull) git pull "$@";;
+    ps|psh|pus|push) git push "$@";;
+    s|st|sta|stat*) git status "$@";;
     h) echo "the (g)it function - g (a b c d l p ps s)"
        echo " g a(dd)"
        echo " g b(ranch)"
        echo " g c(ommit)"
+       echo " g ch(eckout)"
        echo " g clp (clone public with full path)"
        echo " g d(iff)"
        echo " g l(og)"
