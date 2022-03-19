@@ -25,6 +25,8 @@ function d(){
     rme)      d_containers=$(docker ps -a | awk '/Exited|Created/ { print $1 }')
               [ -n "$d_containers" ] && echo "$d_containers" | xargs docker rm
     ;;
+    ri)       docker run -ti --rm "$@"
+    ;;
     h)        echo "the (d)ocker function - d (b r c i n v)"
               echo " d b(uild)"
               echo " d r(un)"
