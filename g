@@ -1,8 +1,8 @@
-#!/bin/bash
-
+#!/bin/sh
+set -ue
 rundir=$(cd -P -- "$(dirname -- "$0")" && printf '%s\n' "$(pwd -P)")
-canonical="$rundir/$(basename -- "$0")"
 
-source $rundir/git.sh
+# shellcheck source=git.sh
+. "${rundir}"/git.sh
 
-g "$@"
+gitShort "$@"
