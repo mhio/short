@@ -1,8 +1,7 @@
-#!/bin/bash
-
+#!/bin/sh
+set -ue
 rundir=$(cd -P -- "$(dirname -- "$0")" && printf '%s\n' "$(pwd -P)")
-canonical="$rundir/$(basename -- "$0")"
 
-source $rundir/kubectl.sh
+. "$rundir"/kubectl.sh
 
-k "$@"
+kubectlShort "$@"
