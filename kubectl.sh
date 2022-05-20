@@ -1,23 +1,22 @@
-
 # This is this kubectl shortener
-function k(){
-  set -x
-  local arg K_NAMESPACE_ARG
-  arg="$1"
-  [ -z "$arg" ] || shift
-  if [ "$arg" == "ans" ]; then
+
+kubectlShort(){
+  #set -x
+  local_arg="$1"
+  [ -z "$local_arg" ] || shift
+  if [ "$local_arg" == "ans" ]; then
     K_NAMESPACE_ARG="--all-namespaces"
-    arg="$1"
+    local_arg="$1"
     shift
   fi
-  if [ -n "$K_NS" ]; then
+  if [ -n "${K_NS:-}" ]; then
     if [ "$K_NS" == "all" ]; then
       K_NAMESPACE_ARG="--all-namespaces"
     else
       K_NAMESPACE_ARG="--namespace \"$K_NS\""
     fi
   fi
-  case $arg in
+  case "$local_arg" in
     del)            kubectl delete    $K_NAMESPACE_ARG "$@";;
     exp*)           kubectl explain   $K_NAMESPACE_ARG "$@";;
     c|cr|cre*)      kubectl create    $K_NAMESPACE_ARG "$@";;
@@ -32,7 +31,7 @@ function k(){
     e|ed|edi)       kubectl edit      $K_NAMESPACE_ARG "$@";;
     l|lo|log)       kubectl logs      $K_NAMESPACE_ARG "$@";;
     ex|exe)         kubectl exec      $K_NAMESPACE_ARG "$@";;
-    h|help) echo "the (k)ubectl function - k ()"
+    h|help) echo "the (k)ubectl function"
        echo " k a(pply)"
        echo " k c(reate)"
        echo " k e(dit)"
@@ -47,13 +46,13 @@ function k(){
        echo " k api-r(esources)"
        echo " k co(nfig)"
        ;;
-    *) kubectl $K_NAMESPACE_ARG "$arg" "$@";;
+    *) kubectl $K_NAMESPACE_ARG "$local_arg" "$@";;
   esac
-  set +x
+  #set +x
 }
 
 set_kubeconfig_namespace(){
-  local namespace="$1"
+  local_namespace="$1"
   context=$(kubectl config current-context)
 }
 

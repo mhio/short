@@ -1,20 +1,27 @@
 # Git, Docker and Kubernetes shell helpers
 
-v0.5.0
+v0.6.0 - back to the sh
 
 ## Usage
 
-``
+```
 cd ~
 git clone https://github.com/mhio/short.git
 ```
 
-Add to `.bashrc`
+```
+~/short/d run -ti --rm docker.io/debian echo it is $(date)
+```
+
+Or source and alias functions in `.bashrc`
 ```
 # short docker, kubectl, git https://github.com/mhio/short
 source ~/short/docker.sh
+alias d=dockerShort
 source ~/short/kubectl.sh
+alias k=kubectShort
 source ~/short/git.sh
+alias g=gitShort
 ```
 
 Then run
