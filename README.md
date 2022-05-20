@@ -9,17 +9,18 @@ cd ~
 git clone https://github.com/mhio/short.git
 ```
 
+`d` `g` and `k` scripts are supplied:
 ```
 ~/short/d run -ti --rm docker.io/debian echo it is $(date)
 ```
 
-Or source and alias functions in `.bashrc`
+Or source and alias functions in an rc file
 ```
 # short docker, kubectl, git https://github.com/mhio/short
 source ~/short/docker.sh
 alias d=dockerShort
 source ~/short/kubectl.sh
-alias k=kubectShort
+alias k=kubectlShort
 source ~/short/git.sh
 alias g=gitShort
 ```
