@@ -7,6 +7,8 @@ gitShort(){
   [ -z "$local_git_short_arg" ] || shift
 
   case "$local_git_short_arg" in
+  
+    # Shortcuts
     a|ad) git add "$@";;
     b|br|bra|bran|branc) git branch "$@";;
     c|co|com|comm|commi) git commit "$@";;
@@ -17,6 +19,11 @@ gitShort(){
     ps|psh|pus) git push "$@";;
     s|st|sta|stat|statu) git status "$@";;
     t|ta) git tag "$@";;
+
+    # Addons
+    ln|logname) git log --name-status "$@";;
+
+    # Help
     h) echo "the (g)it function - g (a b c ch d l p ps s t)"
        echo " g a(dd)"
        echo " g b(ranch)"
