@@ -42,7 +42,7 @@ dockerShort(){
       dockerChildImages "$@"
     ;;
     lsi)
-      docker images ls "$@" |  sort
+      docker image "$@" |  sort
     ;;
     lsc)
       docker container ls "$@" | sort
