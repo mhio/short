@@ -42,10 +42,10 @@ dockerShort(){
       dockerChildImages "$@"
     ;;
     lsi)
-      docker image ls "$@" |  sort
+      docker image ls "$@" | keepHeader sort
     ;;
     lsc)
-      docker container ls "$@" | sort
+      docker container ls "$@" | keepHeader sort
     ;;
     h)        echo "the (d)ocker function - d (b r c i n v psa rmin rme ri fci)"
               echo " d b(uild)"
@@ -72,4 +72,11 @@ dockerChildImages(){
   docker images --quiet --filter "since=${docker_child_images_image_id}" \
    | xargs -I {} sh -c "docker history --quiet {} | grep \"${docker_child_images_image_id}\" && echo {}" \
    | sort -u
+}
+
+# https://unix.stackexchange.com/questions/11856/sort-but-keep-header-line-at-the-top
+keepHeader() {
+    IFS= read -r header
+    printf '%s\n' "$header"
+    "$@"
 }
