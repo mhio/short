@@ -70,6 +70,6 @@ dockerShort(){
 dockerChildImages(){
   docker_child_images_image_id="$1"
   docker images --quiet --filter "since=${docker_child_images_image_id}" \
-   | xargs -I {} sh -c "docker history --quiet {} | grep ${docker_child_images_image_id} && echo {}" \
+   | xargs -I {} sh -c "docker history --quiet {} | grep \"${docker_child_images_image_id}\" && echo {}" \
    | sort -u
 }
