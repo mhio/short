@@ -8,15 +8,17 @@
   "license": "MIT",
   "devDependencies": {
     "@mhio/test-cli": "^0.3.1",
-    "chai": "^4.3",
+    "chai": "~4.3.7",
     "chai-subset": "^1.6.0",
-    "mocha": "^10"
+    "mocha": "^10.1.0"
   },
   "scripts": {
     "test": "mocha"
   },
   "mocha": {
-    "require": [ "./test/fixture/mocha-setup.js" ],
+    "require": [
+      "./test/fixture/mocha-setup.js"
+    ],
     "ui": "bdd"
   }
 }
