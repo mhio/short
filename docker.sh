@@ -79,7 +79,7 @@ dockerChildImages(){
 }
 
 dockerNetworkIps(){
-  docker inspect "$(docker ps -aq)" \
+  docker inspect $(docker ps -aq) \
    | jq '.[] | [ .Name, .NetworkSettings.Networks[].IPAddress ]'
 }
 
