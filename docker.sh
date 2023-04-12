@@ -41,6 +41,9 @@ dockerShort(){
     fci)
       dockerChildImages "$@"
     ;;
+    netip)
+      dockerNetworkIps "$@"
+    ;;
     lsi)
       docker image ls "$@" | keepHeader sort
     ;;
@@ -59,6 +62,7 @@ dockerShort(){
               echo " d rme (rm all exited/created)"
               echo " d ri (run interactive and remove after)"
               echo " d fci (find child images referencing \$image_id)"
+              echo " d netip (list network ips"
               echo " d lsi (list images)"
               echo " d lsc (list containers)"
     ;;
@@ -72,6 +76,11 @@ dockerChildImages(){
   docker images --quiet --filter "since=${docker_child_images_image_id}" \
    | xargs -I {} sh -c "docker history --quiet {} | grep \"${docker_child_images_image_id}\" && echo {}" \
    | sort -u
+}
+
+dockerNetworkIps(){
+  docker inspect "$(docker ps -aq)" \
+   | jq '.[] | [ .Name, .NetworkSettings.Networks[].IPAddress ]'
 }
 
 # https://unix.stackexchange.com/questions/11856/sort-but-keep-header-line-at-the-top
