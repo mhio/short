@@ -14,7 +14,7 @@ git clone https://github.com/mhio/short.git
 ~/short/d run -ti --rm docker.io/debian echo it is $(date)
 ```
 
-Or source and alias functions in an rc file
+Or source the main scripts and create alias entries to the shortcuts (like `d`) in an rc file
 ```
 # short docker, kubectl, git https://github.com/mhio/short
 source ~/short/docker.sh
