@@ -35,6 +35,12 @@ dockerShort(){
     rme)      d_containers=$(docker ps -a | awk '/Exited|Created/ { print $1 }')
               [ -n "$d_containers" ] && echo "$d_containers" | xargs docker rm
     ;;
+    e|ex|exe)
+      docker exec "$@"
+    ;;
+    ei)
+      docker exec -ti "$@"
+    ;;
     ri|rirm)
       docker run -ti --rm "$@"
     ;;
@@ -53,6 +59,7 @@ dockerShort(){
     h)        echo "the (d)ocker function - d (b r c i n v psa rmin rme ri fci)"
               echo " d b(uild)"
               echo " d r(un)"
+              echo " d e(xec)"
               echo " d c(ommit)"
               echo " d i(mage)"
               echo " d n(network)"
@@ -61,6 +68,7 @@ dockerShort(){
               echo " d rmin (rmi all <none>)"
               echo " d rme (rm all exited/created)"
               echo " d ri (run interactive and remove after)"
+              echo " d ei (exec interactive)"
               echo " d fci (find child images referencing \$image_id)"
               echo " d netip (list network ips"
               echo " d lsi (list images)"
