@@ -30,13 +30,15 @@ gitShort(){
        echo " g c(ommit)"
        echo " g ch(eckout)"
        echo " g d(iff)"
+       echo " g h (print g help)"
        echo " g l(og)"
+       echo " g ln (log --name-status)"
        echo " g p(ull)"
        echo " g ps(h)"
        echo " g s(tatus)"
        echo " g t(ag)"
        echo
-       echo "All unkown or extra paramaters are passed on to git";;
+       echo "All unknown or extra paramaters are passed on to git";;
     *) git "$local_git_short_arg" "$@";; 
   esac
   #set +x
