@@ -12,6 +12,7 @@ gitShort(){
     a|ad) git add "$@";;
     b|br|bra|bran|branc) git branch "$@";;
     c|co|com|comm|commi) git commit "$@";;
+    ca) git commit --amend "$@";;
     ch|che|chec|check|checko|checkou) git checkout "$@";;
     d|di|dif) git diff "$@";;
     l|lo) git log "$@";;
@@ -28,6 +29,7 @@ gitShort(){
        echo " g a(dd)"
        echo " g b(ranch)"
        echo " g c(ommit)"
+       echo " g ca(commit --amend)"
        echo " g ch(eckout)"
        echo " g d(iff)"
        echo " g h (print g help)"
