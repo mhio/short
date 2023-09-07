@@ -29,7 +29,7 @@ gitShort(){
        echo " g a(dd)"
        echo " g b(ranch)"
        echo " g c(ommit)"
-       echo " g ca(commit --amend)"
+       echo " g ca (commit --amend)"
        echo " g ch(eckout)"
        echo " g d(iff)"
        echo " g h (print g help)"
