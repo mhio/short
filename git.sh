@@ -50,4 +50,4 @@ gitShort(){
   #set +x
 }
 
-# MIT License Copyright (c) 2022 mhio
+# MIT License Copyright (c) 2023 mhio
